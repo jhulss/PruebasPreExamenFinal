@@ -49,3 +49,27 @@ Disponibilidad del cliente
 Diferencia en los horarios de disponibilidad de los integrantes del grupo
 No contar con uno o más de los miembros del equipo en alguna reunión de trabajo por diferencias de horario
 Cambio de los requerimientos de la app en tiempo de entrega.
+
+
+function calcularSumaCadenas(cadena) {
+  // Verificar si la cadena está vacía
+  if (cadena.length === 0) {
+    return 0;
+  }
+
+  // Verificar si la cadena contiene el separador "-"
+  if (cadena.includes("-")) {
+    // Reemplazar el separador "-" por ","
+    cadena = cadena.replace("-", ",");
+  }
+
+  // Dividir la cadena en números utilizando "," como separador
+  const numeros = cadena.split(",");
+
+  // Sumar los números y devolver el resultado
+  const suma = numeros.reduce((total, numero) => {
+    return total + Number(numero);
+  }, 0);
+
+  return suma;
+}
