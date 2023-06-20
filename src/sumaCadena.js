@@ -41,3 +41,27 @@ class CalcuCadenas {
   
     // Agrega más pruebas según sea necesario
   });
+
+
+
+  class CalcuCadenas {
+    calcularRepeticiones(cadena) {
+      const numeros = this.obtenerNumeros(cadena);
+      const repeticiones = {};
+  
+      numeros.forEach(numero => {
+        if (repeticiones.hasOwnProperty(numero)) {
+          repeticiones[numero]++;
+        } else {
+          repeticiones[numero] = 1;
+        }
+      });
+  
+      return repeticiones;
+    }
+  
+    obtenerNumeros(cadena) {
+      const numeros = cadena.split(/[,-]/);
+      return numeros.filter(numero => numero !== "").map(numero => parseInt(numero));
+    }
+  }
