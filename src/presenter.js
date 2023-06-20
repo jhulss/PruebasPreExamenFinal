@@ -1,15 +1,22 @@
-import sumar from "./sumador";
+import Frases from "./sumador";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
+const first = document.querySelector("#frase");
+const form = document.querySelector("#contar-form");
 const div = document.querySelector("#resultado-div");
 
+
 form.addEventListener("submit", (event) => {
+  const contar = new Frases();
   event.preventDefault();
 
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
+  const frase = first.value;
+  const resultado = contar.contarPalabras(frase);
 
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+  // Convertir el objeto de resultado a una cadena legible
+  let resultadoString = "";
+  for (const palabra in resultado) {
+    resultadoString += `${palabra}: ${resultado[palabra]}\n`;
+  }
+
+  div.innerHTML = "<p>" + resultadoString + "</p>";
 });
